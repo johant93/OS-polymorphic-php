@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="style.css">
+<div id="div_form">
+    <form  action="/api/gen_url.php" method="POST">
+        <!-- Selectbox with OS selection (Linux & windows)   -->
+        <div>
+
+            <label for="os">OS</label>
+            <select name="os">
+                <option value="windows">Windows</option>
+                <option value="linux">Linux</option>
+            </select>
+        </div>
+        <!-- TextBox for the URL address -->
+        <div>
+
+            <label for="url">URL</label>
+            <input type="text" name="url" id="url" placeholder="URL">
+        </div>
+        <!-- Submit button -->
+        <input type="submit" value="Generate">
+    </form>
+</div>
