@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
 <div id="div_form">
-    <form  action="/api/gen_url.php" method="POST">
+    <form  id='os_gen_form' action="/api/gen_url.php" method="POST">
         <!-- Selectbox with OS selection (Linux & windows)   -->
         <div>
 
@@ -19,4 +22,12 @@
         <!-- Submit button -->
         <input type="submit" value="Generate">
     </form>
+</div>
+
+<!-- Output -->
+<div id="div_result">
+    <div>
+        <label for="result">Result:</label>
+        <div id="result"></div>
+    </div>
 </div>

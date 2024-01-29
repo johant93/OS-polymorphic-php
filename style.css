@@ -2,7 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin-top: 10%;
+}
+
+#div_result {
+    text-align: center;
 }
 
 form {

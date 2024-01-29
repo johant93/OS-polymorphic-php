@@ -53,7 +53,7 @@ class UrlGenController {
                     break;
             }
 
-            $newParams = !empty($this->originalParams) ? $this->originalParams . $this->new_os_param($osObj) : $this->new_os_param($osObj);
+            $newParams = !empty($this->originalParams) ? $this->originalParams . $this->new_os_params($osObj) : $this->new_os_params($osObj);
             return $this->originalUrl . '?' . $newParams;
      }
      
@@ -63,22 +63,29 @@ class UrlGenController {
       * @param OS $obj (interface)
       * @return string
       */
-     private function new_os_param(OS $obj) : string {
-        $newKey = $obj->get_os_key();
-
+     private function new_os_params(OS $obj) : string {
+        /** get the new OS keys */
+        $newKeys = $obj->get_rand_os_keys();
+        
         $paramsArr = [];
-        /** parse the url query to array */
+        /** parse the original url query to array */
         if(!empty($this->originalParams)){
             /** transform the query url to array */
             parse_str($this->originalParams, $paramsArr);
         } 
 
-        /** check if the key doesn't exist in the original url */
-        if(!array_key_exists($newKey, $paramsArr)) {
-            /** if the key doesn't exist , return the new GET param with randomized value */ 
-            return (!empty($this->originalParams) ? '&' : '') . $newKey . '=' . rand(100, 999);
+        /** Filter the OS keys that already exist in the original url. */
+        $newKeys = array_diff_key($newKeys, $paramsArr);
+
+        /** fill the value randomaly for each new key */
+        if(!empty($newKeys)){
+
+            $newKeys = array_map(function($val) {
+                return  rand(100, 999);
+            }, $newKeys);
+
+            return (!empty($this->originalParams) ? '&' : '') . http_build_query($newKeys);
         } else {
-            /** return any params */
             return '';
         }
      }

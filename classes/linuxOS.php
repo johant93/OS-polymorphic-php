@@ -1,15 +1,12 @@
 <?php
+
 /**
  * Linux OS class
  */
-class LinuxOS implements OS {
-
-    /**
-     * Method to get the OS key name
-     *
-     * @return string
-     */
-    public function get_os_key() : string {
-        return "lin";
+class LinuxOS extends OSkeysRand implements OS
+{
+    /** Constructor */
+    public function __construct() {
+        $this->prefixKey = 'lin_';
     }
 }

@@ -2,14 +2,11 @@
 /**
  * Windows OS class
  */
-class WindowsOS implements OS {
+class WindowsOS extends OSkeysRand implements OS {
     
-    /**
-     * Method to get the OS key name
-     *
-     * @return string
-     */
-    public function get_os_key() : string {
-        return "win";
+    /** Constructor */
+    public function __construct() {
+        $this->prefixKey = 'win_';
     }
+
 }
