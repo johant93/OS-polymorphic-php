@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Linux OS class
  */

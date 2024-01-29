@@ -58,7 +58,7 @@ class UrlGenController {
      }
      
      /**
-      * generation of a new GET parameter with the corresponding OS key and with a random value
+      * Method to generate new OS GET parameters according to the OS object
       *
       * @param OS $obj (interface)
       * @return string
@@ -77,13 +77,12 @@ class UrlGenController {
         /** Filter the OS keys that already exist in the original url. */
         $newKeys = array_diff_key($newKeys, $paramsArr);
 
-        /** fill the value randomaly for each new key */
         if(!empty($newKeys)){
-
+            /** Fill the value randomaly for each new key */
             $newKeys = array_map(function($val) {
                 return  rand(100, 999);
             }, $newKeys);
-
+        
             return (!empty($this->originalParams) ? '&' : '') . http_build_query($newKeys);
         } else {
             return '';

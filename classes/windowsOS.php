@@ -8,5 +8,4 @@ class WindowsOS extends OSkeysRand implements OS {
     public function __construct() {
         $this->prefixKey = 'win_';
     }
-
 }

@@ -8,6 +8,7 @@ if(UrlGenController::url_validation($url) === false){
     exit('invalid url');
 }
 
+/** Use the controler to generate the new url according to the os */
 $urlGenContr = new UrlGenController($url);
 try {
     echo $urlGenContr->generate_url($os);

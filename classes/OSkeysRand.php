@@ -1,8 +1,6 @@
 <?php
-
 abstract class OSkeysRand
 {
-
     /**
      * Properties
      */
@@ -11,7 +9,7 @@ abstract class OSkeysRand
     protected $maxKeys = 10;
 
     /**
-     * Method to get the OS keys 
+     * Method to generate new OS keys
      * Return an array of a random lenght from 1 to 10 with the OS keys and the same default value assigned to each key;
      *
      * @return array
